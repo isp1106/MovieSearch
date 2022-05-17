@@ -1,0 +1,312 @@
+@charset "utf-8";
+$ci : #fd1d69;
+// common
+label{
+  @include text-indent;
+}
+
+.inner{
+  position: relative;
+  max-width: 1280px;
+  margin:0 auto;
+}
+select::-ms-expand {
+  display: none;
+}
+// HEADER
+#header{
+  position: fixed;
+  left:0;
+  top:0;
+  width:100%;
+  z-index: 10;
+  height: 10rem;
+  background-color:transparent;
+  .inner{
+    height: 100%;
+  }
+  .logo{
+    position: absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+    left:2%;
+    width:15rem;
+    background:url('./images/logo.png') no-repeat center center / 100%;
+    @include text-indent;
+    a{
+      display: block;
+      height: 100%;
+    }
+  }
+}
+
+// main
+.main{
+  background:url('../../images/keyvisual.jpg')no-repeat left 20% center / cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding:10rem 4%;
+  .inner{
+    z-index: 5;
+  }
+  h1{
+    font-size: 5rem;
+    font-weight: 700;
+    color:#fff;
+    text-align: center;
+  }
+  &:after{
+    content: "";
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    opacity:.63;
+    z-index: 1;
+  }
+  .results{
+    font-size: 1.4rem;
+    font-weight: 100;
+    text-align: right;
+    display: block;
+    margin:1rem 0;
+    color: #fff;
+    strong{
+      font-size: 3rem;
+      font-weight: 700;
+      color: $ci;
+      margin:0 .5rem;
+    }
+  }
+  .search-wrapper{
+    input{
+      font-size: 3rem;
+      width:100%;
+      height:7rem;
+      padding:2.5rem 2rem 2rem;
+      margin:2rem 0 1rem;
+    }
+    .search-btn{
+      font-size: 2rem;
+      font-weight: 700;
+      color:#fff;
+      width:100%;
+      height:7rem;
+      background-color: $ci;
+    }
+  }
+  .movies{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    &__item{
+      width:25%;
+      height:44rem;
+      padding:1rem;
+      a{
+        position: relative;
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding:2rem;
+        background:#000;
+        box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 80%);
+        img{
+          position: absolute;
+          left:0;
+          width:100%;
+          top:50%;
+          transform: translateY(-50%);
+        }
+        &:after{
+          content:'';
+          position: absolute;
+          left:0;
+          top:0;
+          background-color: rgba(1, 1, 1, .8);
+          width:100%;
+          height:100%;
+          z-index: 0;
+          opacity: 0;
+          transition: .4s linear;
+        }
+        &:hover {
+          &:after, > *{
+            opacity: 1;
+          }
+        }
+      }
+        &__title{
+          font-size: 3rem;
+          position: relative;
+          z-index: 1;
+          color:#fff;
+          opacity: 0;
+          transition: .4s linear;
+          @include multiline-ellipsis(7.69rem, 2);
+          margin:0 0 2rem;
+        }
+        &__year{
+          font-size: 2rem;
+          position: relative;
+          z-index: 1;
+          color:#fff;
+          opacity: 0;
+          transition: .4s linear;
+        }
+    }
+  }
+  .watch-more{
+    &.loading{
+    .watch-more__load{
+        position: fixed;
+        bottom: 5%;
+        z-index: 10;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 80px;
+        height: 80px;
+      
+        span {
+          display: block;
+          animation: lazy-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          transform-origin: 40px 40px;
+      
+          &:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fff;
+            margin: -4px 0 0 -4px;
+          }
+      
+          &:nth-child(1) {
+            animation-delay: -0.036s;
+      
+            &:after {
+              top: 63px;
+              left: 63px;
+            }
+          }
+      
+          &:nth-child(2) {
+            animation-delay: -0.072s;
+      
+            &:after {
+              top: 68px;
+              left: 56px;
+            }
+          }
+      
+          &:nth-child(3) {
+            animation-delay: -0.108s;
+      
+            &:after {
+              top: 71px;
+              left: 48px;
+            }
+          }
+      
+          &:nth-child(4) {
+            animation-delay: -0.144s;
+      
+            &:after {
+              top: 72px;
+              left: 40px;
+            }
+          }
+      
+          &:nth-child(5) {
+            animation-delay: -0.18s;
+      
+            &:after {
+              top: 71px;
+              left: 32px;
+            }
+          }
+      
+          &:nth-child(6) {
+            animation-delay: -0.216s;
+      
+            &:after {
+              top: 68px;
+              left: 24px;
+            }
+          }
+      
+          &:nth-child(7) {
+            animation-delay: -0.252s;
+      
+            &:after {
+              top: 63px;
+              left: 17px;
+            }
+          }
+      
+          &:nth-child(8) {
+            animation-delay: -0.288s;
+      
+            &:after {
+              top: 56px;
+              left: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @keyframes lazy-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+
+// ---------------------------------------media query started-----------------------------------------------
+// m:  480px,
+// wm : 640px,
+// t:  768px,
+// lt : 1080px,
+// pc: 1280px
+
+@include mq($from: pc) {
+  *{
+    word-break: keep-all;
+  }
+  .main .movies__item{
+    width:33.333%;
+    height: 50.78125vw;
+  }
+}
+@include mq($from: t) {
+}
+@include mq($from: m){
+  .main .movies__item{
+    width:50%;
+    height:68.75vw;
+  }
+}
